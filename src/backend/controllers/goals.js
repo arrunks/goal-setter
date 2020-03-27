@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const Goal = require('../models/goals');
 
-const connUri = process.env.MONGO_LOCAL_CONN_URL;
-
 module.exports = {
   add: (req, res) => {
-    mongoose.connect(connUri, { useNewUrlParser : true,  useUnifiedTopology: true }, (err) => {
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser : true,  useUnifiedTopology: true }, (err) => {
       let result = {};
       let status = 201;
       if (!err) {
@@ -33,8 +31,7 @@ module.exports = {
   },
   getAll: (req, res) => {
     const { authorid } = req.query;
-    console.log(authorid);
-    mongoose.connect(connUri, { useNewUrlParser: true }, (err) => {
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser: true }, (err) => {
       Goal.find({authorId:authorid}, (err, goals) => {
         if (!err) {
           res.send(goals);

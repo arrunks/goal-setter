@@ -3,11 +3,9 @@ const User = require('../models/users');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const connUri = process.env.MONGO_LOCAL_CONN_URL;
-
 module.exports = {
   add: (req, res) => {
-    mongoose.connect(connUri, { useNewUrlParser : true,  useUnifiedTopology: true }, (err) => {
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser : true,  useUnifiedTopology: true }, (err) => {
       let result = {};
       let status = 201;
       if (!err) {
@@ -36,8 +34,8 @@ module.exports = {
   login: (req, res) => {
     
     const { email, password } = req.body;
-
-    mongoose.connect(connUri, { useNewUrlParser: true }, (err) => {
+    console.log(email);
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser: true }, (err) => {
       let result = {};
       let status = 200;
       if(!err) {
@@ -85,7 +83,7 @@ module.exports = {
     });
   },
   getAll: (req, res) => {
-    mongoose.connect(connUri, { useNewUrlParser: true }, (err) => {
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser: true }, (err) => {
       User.find({}, (err, users) => {
         if (!err) {
           res.send(users);
@@ -97,7 +95,7 @@ module.exports = {
   },
   getUser: (req, res) => {
     const { _id } = req.decoded;
-    mongoose.connect(connUri, { useNewUrlParser: true }, (err) => {
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser: true }, (err) => {
       User.findOne({_id}, (err, users) => {
         if (!err) {
           res.send(users);
