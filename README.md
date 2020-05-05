@@ -8,6 +8,7 @@ This is a goal setting application to write down one's goal and update its statu
 - sass and bootstrap for styling.
 - jest for testing.
 - webpack as a compilation and buildtool.
+- MongoDb atlas as the cloud database.
 - And some more helper packages.
 
 #### Architecture
