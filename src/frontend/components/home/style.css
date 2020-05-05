@@ -1,0 +1,21 @@
+.writeGoalContainer{
+    margin-top: -80px;
+    background: #fff;
+    max-width: 410px;
+    margin-bottom: 50px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 0.5em;
+}
+.styledInitialLetter{
+    color: #fff;
+    border-radius: 50%;
+    background: #000;
+    font-size: 22px;
+    height: 48px;
+    line-height: 48px;
+    width: 48px;
+    text-align: center;
+    display: block;
+    text-transform: capitalize;
+}

@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signin should render Component correctly 1`] = `
+<SignInComponent>
+  <Container
+    className="pt-4"
+    fluid={false}
+  >
+    <div
+      className="pt-4 container"
+    >
+      <Row
+        noGutters={false}
+      >
+        <div
+          className="row"
+        >
+          <Col
+            className="border-right"
+            md={8}
+          >
+            <div
+              className="border-right col-md-8"
+            >
+              <Motivation>
+                <p
+                  className="quoteText"
+                >
+                  “If you want to be happy, set a goal that commands your thoughts, liberates your energy and inspires your hopes.” —Andrew Carnegie
+                </p>
+              </Motivation>
+            </div>
+          </Col>
+          <Col>
+            <div
+              className="col"
+            >
+              <Form
+                inline={false}
+                onSubmit={[Function]}
+              >
+                <form
+                  className=""
+                  onSubmit={[Function]}
+                >
+                  <FormGroup
+                    controlId="formBasicEmail"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <FormLabel
+                        column={false}
+                        srOnly={false}
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="formBasicEmail"
+                        >
+                          Email address
+                        </label>
+                      </FormLabel>
+                      <FormControl
+                        placeholder="Enter email"
+                        type="email"
+                      >
+                        <input
+                          className="form-control"
+                          id="formBasicEmail"
+                          placeholder="Enter email"
+                          type="email"
+                        />
+                      </FormControl>
+                    </div>
+                  </FormGroup>
+                  <FormGroup
+                    controlId="formBasicPassword"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <FormLabel
+                        column={false}
+                        srOnly={false}
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="formBasicPassword"
+                        >
+                          Password
+                        </label>
+                      </FormLabel>
+                      <FormControl
+                        placeholder="Password"
+                        type="password"
+                      >
+                        <input
+                          className="form-control"
+                          id="formBasicPassword"
+                          placeholder="Password"
+                          type="password"
+                        />
+                      </FormControl>
+                    </div>
+                  </FormGroup>
+                  <Button
+                    active={false}
+                    disabled={false}
+                    type="submit"
+                    variant="primary"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      disabled={false}
+                      type="submit"
+                    >
+                      Sign In
+                    </button>
+                  </Button>
+                </form>
+              </Form>
+            </div>
+          </Col>
+        </div>
+      </Row>
+    </div>
+  </Container>
+</SignInComponent>
+`;

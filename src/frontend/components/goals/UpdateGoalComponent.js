@@ -2,7 +2,7 @@ import React,{useRef, useEffect, useCallback} from 'react';
 
 import {Form, Button, Container, Row, Col} from 'react-bootstrap';
 
-const CreateGoalComponent = ({authorId,createGoal,title,description,dueDate}) => {
+const UpdateGoalComponent = ({authorId,title,description,dueDate,_id,updateGoal,updateCallback}) => {
     const titleRef = useRef('');
     const descRef = useRef('');
     const dueRef = useRef('');
@@ -15,10 +15,11 @@ const CreateGoalComponent = ({authorId,createGoal,title,description,dueDate}) =>
 
     const onSubmit = (e) => {
         e.preventDefault();
-        createGoal(titleRef.current.value,descRef.current.value,authorId,dueRef.current.value).then(() => {
+        updateGoal(_id,titleRef.current.value,descRef.current.value,authorId,dueRef.current.value).then(() => {
             titleRef.current.value = '';
             descRef.current.value = '';
             dueRef.current.value = '';
+            updateCallback();
         });
 
     }
@@ -41,7 +42,7 @@ const CreateGoalComponent = ({authorId,createGoal,title,description,dueDate}) =>
                         <Form.Label>Due Date</Form.Label>
                         <Form.Control type="date" ref={dueRef} placeholder="Due On" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">Create Goal
+                    <Button variant="primary" type="submit">Update Goal
                     </Button>
                     </Form>
                 </Col>
@@ -50,4 +51,4 @@ const CreateGoalComponent = ({authorId,createGoal,title,description,dueDate}) =>
     )
 }
 
-export default CreateGoalComponent;
+export default UpdateGoalComponent;

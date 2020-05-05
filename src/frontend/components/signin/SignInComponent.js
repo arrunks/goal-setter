@@ -1,9 +1,11 @@
 import React,{useRef} from 'react';
 import { connect } from 'react-redux';
-import { doSignIn } from '../redux/actions';
+import { doSignIn } from 'Actions';
 import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import { Motivation } from  'Components/motivation';
+import styles from './style.css';
 
-const SignInComponent = ({history,doSignIn}) => {
+export const SignInComponent = ({history,doSignIn}) => {
     const emailRef = useRef('');
     const passRef = useRef('');
 
@@ -14,9 +16,12 @@ const SignInComponent = ({history,doSignIn}) => {
         });
     };
     return (
-        <Container>
+        <Container fluid>
             <Row>
-                <Col>
+                <Col md={8} className={styles.signinContainer}>
+                    <Motivation/>
+                </Col>
+                <Col className="pt-4">
                     <Form onSubmit={onSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>

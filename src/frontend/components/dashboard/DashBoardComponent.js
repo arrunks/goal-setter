@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ListGoalsComponent from './goals/ListGoalsComponent';
+import ListGoalsComponent from 'Components/goals/ListGoalsComponent';
 
 import {Container, Row, Col} from 'react-bootstrap';
+import { Motivation } from  'Components/motivation';
+import styles from './style.css';
 
 class DashBoardComponent extends React.Component {
 
@@ -24,15 +26,18 @@ class DashBoardComponent extends React.Component {
         console.log('render');
         return (
             <div>
-                <Container>
-                    <Row>
-                        <Col>
+                <Container fluid>
+                    <Row className={styles.dashboardBanner}>
+                        <Col md={4} className="pt-4">
                            {
-                                <h2>Welcome {this.props.name}</h2>
+                                <h2 className="mb-4 color-white">Howdy! {this.props.name}</h2>
                             }
                         </Col>
+                        <Col md={8}>
+                            <Motivation/>
+                        </Col>
                     </Row>
-                    <Row>
+                    <Row className="mt-4 mb-5">
                         <Col>
                            {
                                 this.props.loaded && <ListGoalsComponent authorId={this.props._id}/>

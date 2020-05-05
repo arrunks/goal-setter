@@ -1,4 +1,4 @@
-import {SIGN_IN,SIGN_OUT} from '../actions';
+import {SIGN_IN,SIGN_OUT} from 'Actions';
 
 const initialState = {
         name:'',

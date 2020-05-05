@@ -1,1 +1,17 @@
+$theme-colors: (
+  "primary": #000000
+);
+
+
 @import "~bootstrap/scss/bootstrap";
+
+.banner-container {
+    background-image: url(https://res.cloudinary.com/dgrovf3st/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1585376565/goal-setter/banner-bg_odwu7w.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+}
+
+.color-white{
+    color:#fff;
+}

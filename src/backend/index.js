@@ -21,9 +21,7 @@ app.use(urlencoded({
     extended:true
 }));
 app.use(json({ type: 'application/*+json' }))
-if (environment !== 'production') {
-    app.use(logger('dev'));
-}
+app.use(logger('dev'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 

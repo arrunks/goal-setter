@@ -7,7 +7,16 @@ module.exports = {
   mode: NODE_ENV,
   output: {
     path: path.resolve(__dirname, 'build','public'),
-    filename: 'main.js'
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js'
+  },
+  resolve: {
+    alias: {
+      Components: path.resolve(__dirname, 'src/frontend/components'),
+      Actions: path.resolve(__dirname, 'src/frontend/redux/actions.js'),
+      Utilities: path.resolve(__dirname, 'src/frontend/utility.js'),
+      Selectors: path.resolve(__dirname, 'src/frontend/redux/selectors.js')
+    }
   },
   module: {
     rules: [
@@ -37,6 +46,20 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.css$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true
+            }
+          }
+        ],
+      }
     ]
   },
   plugins: [

@@ -40,5 +40,29 @@ module.exports = {
         }
       });
     });
+  },
+  update: (req, res) => {
+    const {_id, title, description, authorId, dueOn, completed=false } = req.body;
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser: true }, (err) => {
+      Goal.findByIdAndUpdate(_id,{$set:{ title, description, authorId, dueOn,updatedAt:new Date(),completed }},{new:true}, (err, goals) => {
+        if (!err) {
+          res.send(goals);
+        } else {
+          console.log('Error', err);
+        }
+      });
+    });
+  },
+  delete: (req, res) => {
+    const {_id } = req.body;
+    mongoose.connect(process.env.MONGO_LOCAL_CONN_URL, { useNewUrlParser: true }, (err) => {
+      Goal.deleteOne({_id}, (err, goals) => {
+        if (!err) {
+          res.send(goals);
+        } else {
+          console.log('Error', err);
+        }
+      });
+    });
   }
 }

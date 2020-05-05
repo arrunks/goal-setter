@@ -2,8 +2,10 @@ import React,{useRef} from 'react';
 import axios from 'axios';
 
 import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import { Motivation } from  'Components/motivation';
+import styles from './style.css';
 
-export const SignUpComponent = ({history}) => {
+const SignUpComponent = ({history}) => {
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -21,9 +23,12 @@ export const SignUpComponent = ({history}) => {
         })
     }
     return (
-        <Container>
+        <Container  fluid>
             <Row>
-                <Col>
+                <Col md={8} className={styles.signupContainer} >
+                    <Motivation/>
+                </Col>
+                <Col className="pt-4">
                     <Form onSubmit={formSubmit}>
                     <Form.Group controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
@@ -56,3 +61,5 @@ export const SignUpComponent = ({history}) => {
         </Container>
     )
 }
+
+export default SignUpComponent;
